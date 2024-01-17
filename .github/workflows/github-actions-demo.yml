@@ -1,0 +1,30 @@
+name: GitHub Actions Demo
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.github/**'
+
+  pull_request:
+    branches:
+      - main
+
+  schedule:
+    - cron: '15 6 * * 0'
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Run Your Commands
+      # Add your desired commands or steps here
+      run: |
+        echo "Executing your commands..."
